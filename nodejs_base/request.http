@@ -1,0 +1,9 @@
+# GET http://localhost:3000/greet?a=123 HTTP/1.1
+
+POST http://localhost:3000/post HTTP/1.1
+
+Content-Type: application/json
+
+{
+    "a": "this is test"
+}

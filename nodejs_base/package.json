@@ -1,0 +1,13 @@
+{
+  "name": "jsdom-demo",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "execa": "^9.6.0",
+    "http-proxy-middleware": "^3.0.5",
+    "jsdom": "^27.0.1",
+    "mime": "^4.1.0",
+    "pngquant": "^4.2.0",
+    "pngquant-bin": "^9.0.0"
+  }
+}
