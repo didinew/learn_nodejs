@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <script>
+        console.log('Hello from Express index.html');
+        // fetch('http://localhost:3000/info', {
+        //     method: 'POST',
+        //     body: JSON.stringify({
+        //         name: 'zhangsan'
+        //     }),
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }).then(response => response.json()).then(data => {
+        //     console.log(data);
+        // });
+        const sse = new EventSource('http://localhost:3000/sse');
+        sse.onmessage = function(event) {
+            console.log('Received SSE message:', event.data);
+        };
+    </script>
+</body>
+</html>
