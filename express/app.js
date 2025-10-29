@@ -1,30 +1,19 @@
+// 响应头
 import express from 'express';
-
-// 制作防盗链
 const app = express();
 
-const whiteList = ['localhost']
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // 允许所有域名访问
+  res.header('Content-Type', 'application/json;charset=utf-8'); // 设置响应内容类型
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  next();
+});
 
-// 防盗链中间件
-const preventHotLinking = (req, res, next) => {
-    // 获取请求头
-    console.log('Headers:', req.headers);
-    const referer = req.get('referer'); // 获取请求头部的 referer 字短
-    console.log('Referer:', referer);
-    if (referer) {
-        const { hostname } = new URL(referer);
-        if (!whiteList.includes(hostname)) {
-            res.status(403).send('Forbidden');
-            return
-        }
-    }
-    next()
-}
-
-app.use(preventHotLinking);
-
-app.use('/assets', express.static('assets'));
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
 app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+  console.log('Server is running on http://localhost:3000');
 });
