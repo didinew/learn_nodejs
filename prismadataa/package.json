@@ -1,6 +1,18 @@
 {
+  "name": "prisma-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
   "devDependencies": {
+    "@prisma/client": "^6.18.0",
     "@prisma/config": "^6.18.0",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "prisma": "^6.18.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

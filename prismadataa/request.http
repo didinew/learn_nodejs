@@ -1,0 +1,11 @@
+POST http://localhost:3000/createUserWithPosts
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "posts": {
+    "title": "My First Post",
+    "content": "This is the content of my first post."
+  }
+}
