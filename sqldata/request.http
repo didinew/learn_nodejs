@@ -1,5 +1,21 @@
 #GET http://localhost:3000/ HTTP/1.1
 
 
-GET http://localhost:3000/user/2 HTTP/1.1
+#GET http://localhost:3000/user/2 HTTP/1.1
 
+# POST http://localhost:3000/user HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "name": "John Doe"
+# }
+
+
+#GET http://localhost:3000/del/5 HTTP/1.1
+
+POST http://localhost:3000/update/1 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "name": "Jane Smith"
+}

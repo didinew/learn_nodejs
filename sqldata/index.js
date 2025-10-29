@@ -33,10 +33,26 @@ app.get('/user/:id', async (req, res) => {
 });
 
 // 提交数据到数据库
-app.post('/user', express.json(), async (req, res) => {
+app.post('/user',  async (req, res) => {
     const { name } = req.body;
     const [result] = await sql.execute('INSERT INTO user (name) VALUES (?)', [name]);
     res.json({ id: result.insertId, name });
+});
+
+// 编辑数据库
+app.post('/update/:id', async (req, res) => {
+    const userId = req.params.id;
+    const { name } = req.body;
+    await sql.execute('UPDATE user SET name = ? WHERE id = ?', [name, userId]);
+    res.json({ id: userId, name });
+});
+
+
+// 删除数据库
+app.get('/del/:id', async (req, res) => {
+    const userId = req.params.id;
+    await sql.execute('DELETE FROM user WHERE id = ?', [userId]);
+    res.json({ message: 'User deleted' });
 });
 
 
